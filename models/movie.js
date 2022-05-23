@@ -23,3 +23,5 @@ const movieSchema = new Schema({
     },
     watches: [watchSchema]
 });
+
+module.exports = mongoose.model('Movie', movieSchema);
