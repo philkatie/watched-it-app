@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import { Button, Form, Grid, Header, Image, Segment } from 'semantic-ui-react'
 import userService from "../../utils/userService";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function SignUpPage(props) {
 
@@ -44,7 +44,7 @@ export default function SignUpPage(props) {
     setState({
       ...state,
       [e.target.name]: e.target.value
-    })
+    });
   };
 
   function handleFileInput(e) {
@@ -53,9 +53,12 @@ export default function SignUpPage(props) {
   };
 
   return (
-    <>
       <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
-        <Form autoComplete="off" onSubmit={handleSubmit}>
+        <Grid.Column style={{ maxWidth: 450 }}>
+          <Header as="h2" color="orange" textalign="center">
+            Sign Up for a Watched It Account
+          </Header>
+          <Form autoComplete="off" onSubmit={handleSubmit}>
             <Segment stacked>
               <Form.Input
                 name="username"
@@ -108,7 +111,7 @@ export default function SignUpPage(props) {
               </Segment>
           {error ? <ErrorMessage error={error} /> : null}
         </Form>
+        </Grid.Column>
       </Grid>
-    </>
   );
 }
