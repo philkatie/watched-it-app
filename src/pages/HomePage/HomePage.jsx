@@ -8,6 +8,7 @@ export default function HomePage({user, handleLogout}) {
             <Grid.Row>
                 <Grid.Column>
                     <Header handleLogout={handleLogout} user={user} />
+                    <h1>Popular Movies:</h1>
                 </Grid.Column>
             </Grid.Row>
         </Grid>
