@@ -15,6 +15,13 @@ export default function LoginPage(props) {
     password: '',
   });
 
+  function handleChange(e) {
+    setState({
+      ...state,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   return (
     <>
       <Grid textAlign="center" verticalAlign="middle">
