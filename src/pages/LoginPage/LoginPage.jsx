@@ -15,6 +15,20 @@ export default function LoginPage(props) {
     password: '',
   });
 
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    try {
+      await userService.login(state)
+      props.handleSignUpOrLogin();
+      navigate('/')
+    } catch(err) {
+      console.log(err.message);
+      setError(err.message)
+    }
+  };
+  
+
   function handleChange(e) {
     setState({
       ...state,
