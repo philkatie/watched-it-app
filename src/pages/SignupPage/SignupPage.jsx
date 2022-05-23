@@ -5,6 +5,16 @@ import userService from "../../utils/userService";
 import { useNavigate } from "react-router-dom";
 
 export default function SignUpPage(props) {
+
+  const [error, setError] = useState('');
+  const [state, setState] = useState({
+    username: '',
+    email: '',
+    password: '',
+    passwordConf: '',
+    bio: ''
+  });
+
   return (
     <>
       <h1>Signup PAGE</h1>
