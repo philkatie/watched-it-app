@@ -15,12 +15,19 @@ export default function SignUpPage(props) {
     bio: ''
   });
 
+  const [selectedFile, setSelectedFile] = useState('');
+
   function handleChange(e) {
     setState({
       ...state,
       [e.target.name]: e.target.value
     })
-  }
+  };
+
+  function handleFileInput(e) {
+    console.log(e.target.files);
+    setSelectedFile(e.target.files[0]);
+  };
 
   return (
     <>
