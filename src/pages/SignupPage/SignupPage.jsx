@@ -20,24 +20,23 @@ export default function SignUpPage(props) {
   const [selectedFile, setSelectedFile] = useState('');
 
   async function handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault()
 
-    const formData = new FormData();
+    const formData = new FormData(); // new FormData is from the browser
     formData.append('photo', selectedFile);
 
     for (let fieldName in state) {
       formData.append(fieldName, state[fieldName])
-    };
+    }
 
     try {
       await userService.signup(formData)
-      props.handleSignupOrLogin();
-      navigate('/');
+      props.handleSignUpOrLogin();
+      navigate('/')
     } catch(err) {
       console.log(err.message);
       setError(err.message)
-    };
-
+    }
   };
 
   function handleChange(e) {
