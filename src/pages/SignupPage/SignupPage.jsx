@@ -15,6 +15,13 @@ export default function SignUpPage(props) {
     bio: ''
   });
 
+  function handleChange(e) {
+    setState({
+      ...state,
+      [e.target.name]: e.target.value
+    })
+  }
+
   return (
     <>
       <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
