@@ -7,7 +7,7 @@ function setToken(token) {
   }
 }
 
-function getToken() {
+export function getToken() {
   let token = localStorage.getItem("token");
   if (token) {
     // Check if expired, remove if it is
