@@ -42,6 +42,10 @@ function App() {
   return (
     <Routes>
       <Route
+        path="/"
+        element={<HomePage user={user} handleLogout={handleLogout} />}
+      />
+      <Route
         path="/login"
         element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />}
       />
