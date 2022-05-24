@@ -1,18 +1,11 @@
 import React, { useState, useEffect } from "react";
 import NavBar from "../../components/NavBar/NavBar";
-import {Link} from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { Card, Grid } from "semantic-ui-react";
-import * as moviesApi from '../../utils/moviesApi';
+import { AppContext } from "../../context/AppContext";
+import MovieFeed from "../../components/MovieFeed/MovieFeed";
 
 export default function HomePage({user, handleLogout, movies, setMovies}) {
-    console.log(moviesApi, "<-- moviesApi")
-    // useEffect(function() {
-    //     async function top250() {
-    //         const movie = await moviesApi.top250();
-    //         setMovies(movie);
-    //     }
-    //     top250();
-    // },[]);
 
     return (
         <Grid centered>
@@ -22,19 +15,11 @@ export default function HomePage({user, handleLogout, movies, setMovies}) {
                 </Grid.Column>
             </Grid.Row>
             <Grid.Row>
-                <h1>Popular Movies:</h1>
-            </Grid.Row>
-            <Grid.Row>
-                {/* <Card.Group itemsPerRow={6} stackable>
-                    {movies.map((m) => (
-                        <Link to={`/movies/${m.id}`} key={m.id}>
-                            <div>
-                                <h1>{m.title}</h1>
-                                <img src={m.image} alt={m.title} width="250" />
-                            </div>
-                        </Link>
-                    ))}
-                </Card.Group> */}
+                <Grid.Column>
+                  <h1>Popular Movies:</h1>
+                    {/* <MovieFeed />   */}
+                </Grid.Column>
+                
             </Grid.Row>
         </Grid>
     )

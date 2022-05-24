@@ -1,21 +1,27 @@
 import React, { useState } from "react";
 import { Card, Icon, Image } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-import * as moviesApi from "../../utils/moviesApi";
+import { AppContext } from '../../context/AppContext'
 
 const API_KEY = process.env.API_KEY;
 
-export default function MovieCard() {
+export default function MovieCard({ movie }) {
     
     // const [movieId, setMovieId] = useState('');
+    const [imgUrl, setImgUrl] = useState(null);
 
     return (
-        <Card>
+        <Card raised>
             <Card.Content>
                 <Card.Header>
-                    {/* {movieId?.title} */}
+                    {movie.title}
                 </Card.Header>
             </Card.Content>
+            <Image 
+                as='a'
+                href={`/${movie.id}`}
+                src={`${imgUrl ? imgUrl : movie.image}`}
+            />
         </Card>
     )
 }
