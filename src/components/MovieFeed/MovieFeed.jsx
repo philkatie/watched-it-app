@@ -14,16 +14,14 @@ export default function MovieFeed() {
     const Movies = appData.items?.map((movie, i) => {
         const movieDB = moviesList.movie?.filter(m => m.imdbId === movie.id)
         return (
-            <MovieCard key={i}  movie={movie} />
+            <MovieCard key={i} movieId={movie.id} movie={movie} movieDB={movieDB} />
         )
     })
 
-  return (<>
-  <h1 align='center'>{}</h1>
-      <Card.Group itemsPerRow={6} stackable>
-        {Movies}
-    </Card.Group>
-  </>
-
-  );
+    return (<>
+        <Card.Group className={'CardGroup'} itemsPerRow={5} stackable>
+            {Movies}
+        </Card.Group>
+    </>
+    );
 }

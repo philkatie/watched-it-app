@@ -4,6 +4,7 @@ import { Link, Outlet } from "react-router-dom";
 import { Card, Grid } from "semantic-ui-react";
 import { AppContext } from "../../context/AppContext";
 import MovieFeed from "../../components/MovieFeed/MovieFeed";
+import MovieCard from "../../components/MovieCard/MovieCard";
 
 export default function HomePage({user, handleLogout, movies, setMovies}) {
 
@@ -15,9 +16,10 @@ export default function HomePage({user, handleLogout, movies, setMovies}) {
                 </Grid.Column>
             </Grid.Row>
             <Grid.Row>
-                <Grid.Column>
+                <Grid.Column style={{ maxWidth: 1000 }}>
                   <h1>Popular Movies:</h1>
-                    {/* <MovieFeed />   */}
+                  <MovieCard />
+                    {/* <MovieFeed />  */}
                 </Grid.Column>
                 
             </Grid.Row>
