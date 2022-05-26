@@ -15,8 +15,9 @@ export default function AddMovieForm(props) {
     function handleSubmit(e) {
         e.preventDefault()
         
-        const fromData = new FormData()
-        FormData.appened('title', state.title)
+        const formData = new FormData()
+        formData.append('title', state.title)
+        props.handleAddPost(formData);
     }
 
     return (

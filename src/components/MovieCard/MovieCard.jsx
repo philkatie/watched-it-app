@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Card, Icon, Image } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { AppContext } from '../../context/AppContext'
-import * as movieApi from '../../utils/movieApi'
+import * as moviesApi from '../../utils/moviesApi'
 
 const API_KEY = process.env.API_KEY;
 
