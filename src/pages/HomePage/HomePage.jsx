@@ -18,8 +18,8 @@ export default function HomePage({user, handleLogout, movies, setMovies}) {
             <Grid.Row>
                 <Grid.Column style={{ maxWidth: 1000 }}>
                   <h1>Popular Movies:</h1>
-                  <MovieCard />
-                    {/* <MovieFeed />  */}
+                  {/* <MovieCard /> */}
+                    <MovieFeed /> 
                 </Grid.Column>
                 
             </Grid.Row>
