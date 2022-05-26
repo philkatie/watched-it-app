@@ -5,6 +5,7 @@ import { Card, Grid } from "semantic-ui-react";
 import { AppContext } from "../../context/AppContext";
 import MovieFeed from "../../components/MovieFeed/MovieFeed";
 import MovieCard from "../../components/MovieCard/MovieCard";
+import AddMovieForm from "../../components/AddMovieForm/AddMovieForm";
 
 export default function HomePage({user, handleLogout, movies, setMovies}) {
 
@@ -13,6 +14,11 @@ export default function HomePage({user, handleLogout, movies, setMovies}) {
             <Grid.Row>
                 <Grid.Column>
                     <NavBar handleLogout={handleLogout} user={user} />
+                </Grid.Column>
+            </Grid.Row>
+            <Grid.Row>
+                <Grid.Column>
+                    <AddMovieForm />
                 </Grid.Column>
             </Grid.Row>
             <Grid.Row>
