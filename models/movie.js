@@ -13,14 +13,15 @@ const Schema = mongoose.Schema;
 // })
 
 const movieSchema = new Schema({
+    user: { type: Schema.Types.ObjectId, ref: 'User'},
     title: {
         type: String,
         required: true
     },
-    apiId: {
-        type: String,
-        required: true
-    }
+    // apiId: {
+    //     type: String,
+    //     required: true
+    // }
     // },
     // watches: [watchSchema]
 });
