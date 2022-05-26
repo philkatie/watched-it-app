@@ -22,14 +22,14 @@ export default function MovieFeed({movies, numMoviesCol}) {
     return (<>
         <Card.Group className={'CardGroup'} itemsPerRow={5} stackable>
 
-            {/* {getMovies.map((movie) => {
+            {movies.map((movie) => {
                 return (
                     <MovieCard
                         movie={movie}
                         key={movie._id}
                         />
                 )
-            })} */}
+            })}
         </Card.Group>
     </>
     );
