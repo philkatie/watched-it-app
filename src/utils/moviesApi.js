@@ -2,10 +2,10 @@ import tokenService from './tokenService';
 
 const BASE_URL = '/api/movies';
 
-export function create(post) {
+export function create(movie) {
     return fetch(BASE_URL, {
       method: 'POST',
-      body: post,
+      body: movie,
       headers: {
         'Authorization': 'Bearer ' + tokenService.getToken()
       }

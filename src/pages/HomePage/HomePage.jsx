@@ -41,7 +41,7 @@ export default function HomePage({user, handleLogout}) {
             </Grid.Row>
             <Grid.Row>
                 <Grid.Column>
-                    <AddMovieForm />
+                    <AddMovieForm handleAddMovie={handleAddMovie}/>
                 </Grid.Column>
             </Grid.Row>
             <Grid.Row>
