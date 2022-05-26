@@ -19,6 +19,19 @@ export default function HomePage({user, handleLogout}) {
         setMovies(movies => [data.movie, ...movies])
     }
 
+    async function getMovies() {
+        try {
+            const data = await moviesApi.getAll();
+            setMovies([...data.movies])
+        } catch(err) {
+            console.log(err, ' this is the error')
+        }
+    }
+
+    useEffect(() => {
+        getMovies()
+    }, [])
+
     return (
         <Grid centered>
             <Grid.Row>
@@ -35,7 +48,7 @@ export default function HomePage({user, handleLogout}) {
                 <Grid.Column style={{ maxWidth: 1000 }}>
                   <h1>Popular Movies:</h1>
                   {/* <MovieCard /> */}
-                    <MovieFeed /> 
+                    <MovieFeed movies={movies} numMoviesCol={3} /> 
                 </Grid.Column>
                 
             </Grid.Row>

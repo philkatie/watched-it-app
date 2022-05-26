@@ -4,10 +4,37 @@ import { Link } from "react-router-dom";
 import { AppContext } from '../../context/AppContext'
 import * as moviesApi from '../../utils/moviesApi'
 
-const API_KEY = process.env.API_KEY;
+// const API_KEY = process.env.API_KEY;
 
-export default function MovieCard({ movieId, movie, movieDB }) {
+export default function MovieCard({ movie, isProfile }) {
     
+    return (
+        <Card key={movie._id}>
+       
+          <Card.Content textAlign='left'>
+              <Image
+                  floated='left'
+                  size='large'
+                  avatar
+                  src={movie.user.photoUrl ? movie.user.photoUrl : 'https://react.semantic-ui.com/images/wireframe/square-image.png'}
+              />
+              <Card.Header floated="right">{movie.user.username}</Card.Header>
+          </Card.Content>
+          <Card.Content>
+          <Card.Description>
+            {movie.title}
+          </Card.Description>
+          </Card.Content>
+          {/* <Card.Content extra textAlign={'right'}>
+            <Icon name={'heart'} size='large' color={'grey'} />
+            {movie.likes.length} Likes
+              
+          </Card.Content> */}
+        </Card>
+      );
+
+
+
     // const { user, removeMovie, addMovie, allPosters, getPoster } = React.useContext(AppContext)
     // const [imgUrl, setImgUrl] = useState(null);
     // const [apiMovie, setApiMovie] = useState(movie);
@@ -38,21 +65,21 @@ export default function MovieCard({ movieId, movie, movieDB }) {
     // const Rated = movie?.imDbRating ? <Card.Description className={"ui center aligned"}><Icon name={'star'} color='yellow'></Icon>IMDB Rating: {movie.imDbRating}</Card.Description> : <Card.Description className={"ui center aligned"}><Icon name={'star'} color='yellow'></Icon>No Rating Available</Card.Description>
 
 
-    return (
-        <Card raised>
-            <Card.Content>
-                <Card.Header>
-                    {/* {apiMovie?.title} */}
-                    <h1>Movie Title</h1>
-                </Card.Header>
-                {/* {Rated} */}
-                Rated R
-            </Card.Content>
-            {/* <Image  
-                as={Link} 
-                to={`/${apiMovie?.id}`} 
-                src={`${imgUrl ? imgUrl : apiMovie?.image}`} 
-                wrapped ui={false} /> */}
-        </Card>
-    )
+    // return (
+    //     <Card raised>
+    //         <Card.Content>
+    //             <Card.Header>
+    //                 {/* {apiMovie?.title} */}
+    //                 <h1>Movie Title</h1>
+    //             </Card.Header>
+    //             {/* {Rated} */}
+    //             Rated R
+    //         </Card.Content>
+    //         {/* <Image  
+    //             as={Link} 
+    //             to={`/${apiMovie?.id}`} 
+    //             src={`${imgUrl ? imgUrl : apiMovie?.image}`} 
+    //             wrapped ui={false} /> */}
+    //     </Card>
+    // )
 }

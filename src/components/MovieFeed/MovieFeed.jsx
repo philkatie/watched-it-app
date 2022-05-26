@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import { Card, Dimmer, Segment, Image } from "semantic-ui-react";
 import MovieCard from "../MovieCard/MovieCard";
 import { AppContext } from "../../context/AppContext";
+import { getMovies } from "../../utils/imdbApi";
 
-export default function MovieFeed() {
+export default function MovieFeed({movies, numMoviesCol}) {
     // const { appData, user, apiSearch, apiUrl, getMovies, moviesList } = React.useContext(AppContext)
 
     // useEffect(() => {
@@ -20,8 +21,15 @@ export default function MovieFeed() {
 
     return (<>
         <Card.Group className={'CardGroup'} itemsPerRow={5} stackable>
-            {/* <{Movies}> */}
-            <MovieCard />
+
+            {/* {getMovies.map((movie) => {
+                return (
+                    <MovieCard
+                        movie={movie}
+                        key={movie._id}
+                        />
+                )
+            })} */}
         </Card.Group>
     </>
     );
