@@ -13,8 +13,10 @@ export default function HomePage({user, handleLogout}) {
     const [movies, setMovies] = useState([])
 
     async function handleAddMovie(movie) {
+        console.log(movie);
         const data = await moviesApi.create(movie);
-        console.log(data)
+        console.log(data.movie, ' This is a new movie ', data, ' data variable')
+        setMovies(movies => [data.movie, ...movies])
     }
 
     return (
