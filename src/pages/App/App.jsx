@@ -5,9 +5,10 @@ import "./App.css";
 import SignupPage from "../SignupPage/SignupPage";
 import LoginPage from "../LoginPage/LoginPage";
 import HomePage from "../HomePage/HomePage";
+import ProfilePage from "../ProfilePage/ProfilePage";
 import userService from "../../utils/userService";
 
-const API_KEY = 'k_677cenz9';
+const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
 
 function App() {
   const [user, setUser] = useState(userService.getUser()); // getUser decodes our JWT token, into a javascript object
@@ -26,7 +27,7 @@ function App() {
   }
 
   const getMovies = async () => {
-    const url = `https://imdb-api.com/en/API/Top250Movies/${API_KEY}`
+    const url = `https://imdb-api.com/en/API/Top250Movies/${REACT_APP_API_KEY}`
 
     const response = await fetch(url);
     const responseJson = await response.json();
@@ -71,6 +72,15 @@ function App() {
           path="/signup"
           element={<SignupPage handleSignUpOrLogin={handleSignUpOrLogin} />}
         />
+        <Route
+          path="/:username" 
+          element={<ProfilePage 
+            user={user} 
+            watches={watches}
+            handleLogout={handleLogout} 
+            addToWatched={addToWatched}
+            removeFromWatched={removeFromWatched}
+          />}/>
       </Routes>
     );
   }
