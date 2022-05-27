@@ -5,6 +5,7 @@ import { Header, Segment, Image, Icon } from "semantic-ui-react";
 export default function NavBar({ user, handleLogout }) {
     console.log(user, 'user in header')
   return (
+    // <h1>NavBar</h1>
     <Segment clearing>
       <Header as="h2" floated="left">
         <Link to="/">
@@ -14,11 +15,11 @@ export default function NavBar({ user, handleLogout }) {
       <Header as="h2" floated="right">
         {user ? 
         <>
-         <Link to={`/${user?.username}`}>
+         <Link to={`/${user.username}`}>
           <Image
             src={
-              user?.photoUrl
-                ? user?.photoUrl
+              user.photoUrl
+                ? user.photoUrl
                 : "https://react.semantic-ui.com/images/wireframe/square-image.png"
             }
             avatar

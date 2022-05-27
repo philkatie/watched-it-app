@@ -11,7 +11,7 @@ export default function MovieCard({movie}) {
     return (
         <Card key={movie._id} raised>
           <Card.Content>
-              <Image src={movie.image} wrapped ui={false}/>
+              <Image src={movie.image} wrapped ui={false} width={275}/>
               {/* <img src={movie.image} alt="movie"></img> */}
           </Card.Content>
           <Card.Description>

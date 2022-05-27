@@ -5,7 +5,6 @@ import { Card, Grid } from "semantic-ui-react";
 import { AppContext } from "../../context/AppContext";
 import MovieFeed from "../../components/MovieFeed/MovieFeed";
 import MovieCard from "../../components/MovieCard/MovieCard";
-import AddMovieForm from "../../components/AddMovieForm/AddMovieForm";
 import * as moviesApi from "../../utils/moviesApi";
 
 export default function HomePage({user, handleLogout}) {
