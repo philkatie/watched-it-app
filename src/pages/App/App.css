@@ -13,3 +13,12 @@ h1 {
 .Nav {
   background: #282c34;
 }
+
+.image-container {
+  position: relative;
+  transition: transform 0.2s;
+}
+
+.image-container:hover {
+  transform: scale(1.05);
+}
