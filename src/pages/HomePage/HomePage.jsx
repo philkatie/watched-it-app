@@ -50,6 +50,7 @@ export default function HomePage({user, movies, watches, handleLogout, addToWatc
                         numMoviesCol={3}
                         addToWatched={addToWatched}
                         removeFromWatched={removeFromWatched}
+                        user={user}
                     /> 
                 </Grid.Column>
             </Grid.Row>

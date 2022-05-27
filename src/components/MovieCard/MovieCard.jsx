@@ -8,7 +8,7 @@ import RemoveFromWatched from "../RemoveFromWatched/RemoveFromWatched";
 
 // const API_KEY = process.env.API_KEY;
 
-export default function MovieCard({movie, watches, addToWatched, removeFromWatched}) {
+export default function MovieCard({movie, watches, addToWatched, removeFromWatched, user}) {
   
     const watchIndex = watches.findIndex(
       (watch) => watch.id === movie.id
@@ -26,71 +26,28 @@ export default function MovieCard({movie, watches, addToWatched, removeFromWatch
               {movie.fullTitle}
             </div>
           </Card.Content>
-          <Card.Description>
-            {watchIndex > -1 ? 
-            <>
-              <div onClick={() => removeFromWatched(movie)}>
-                <RemoveFromWatched />
+          { user ? <>
+            <Card.Description>
+              {watchIndex > -1 ? 
+              <>
+                <div onClick={() => removeFromWatched(movie)}>
+                  <RemoveFromWatched />
+                </div>
+              </> :
+              <>
+              <div onClick={() => addToWatched(movie)}>
+                <AddToWatched />
               </div>
-            </> :
-            <>
-            <div onClick={() => addToWatched(movie)}>
-              <AddToWatched />
-            </div>
-            </>
-            }
-            
-          </Card.Description>
+              </>
+              }
+            </Card.Description>
+          </> : <>
+            <Card.Description>
+              <div>
+                Log In To Start Your Watch List
+              </div>
+            </Card.Description>
+          </>}
         </Card>
     );
 }
-
-
-
-    // const { user, removeMovie, addMovie, allPosters, getPoster } = React.useContext(AppContext)
-    // const [imgUrl, setImgUrl] = useState(null);
-    // const [apiMovie, setApiMovie] = useState(movie);
-
-    // function MovieSearch(id) {
-    //     console.log('searching for movie')
-	// 	const url = `https://imdb-api.com/en/API/Title/${API_KEY}/${id}`
-	// 	return (
-	// 		fetch(url)
-	// 			.then(response => response.json())
-	// 			.then(data => setApiMovie(data))
-	// 	)
-	// }
-
-    // useEffect(() => {
-    //     // getPoster(movie.id)
-    //     // (movieId in allPosters) ? setImgData(allPosters[movieId]) : getPoster(movieId)
-    //     movie ? setApiMovie(movie) : MovieSearch(movieId)
-    // }, [movieDB]);
-
-    // const inList = movieDB?.length && user ? movieDB[0].users.includes(user._id) : false
-    // const liked = inList ? 'red' : 'grey'
-    // const clickHandler =
-    // inList
-    //   ? () => removeMovie(apiMovie.id)
-    //   : () => addMovie(apiMovie.id)
-
-    // const Rated = movie?.imDbRating ? <Card.Description className={"ui center aligned"}><Icon name={'star'} color='yellow'></Icon>IMDB Rating: {movie.imDbRating}</Card.Description> : <Card.Description className={"ui center aligned"}><Icon name={'star'} color='yellow'></Icon>No Rating Available</Card.Description>
-
-
-    // return (
-    //     <Card raised>
-    //         <Card.Content>
-    //             <Card.Header>
-    //                 {/* {apiMovie?.title} */}
-    //                 <h1>Movie Title</h1>
-    //             </Card.Header>
-    //             {/* {Rated} */}
-    //             Rated R
-    //         </Card.Content>
-    //         {/* <Image  
-    //             as={Link} 
-    //             to={`/${apiMovie?.id}`} 
-    //             src={`${imgUrl ? imgUrl : apiMovie?.image}`} 
-    //             wrapped ui={false} /> */}
-    //     </Card>
-    // )

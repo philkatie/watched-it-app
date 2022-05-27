@@ -7,6 +7,8 @@ import LoginPage from "../LoginPage/LoginPage";
 import HomePage from "../HomePage/HomePage";
 import userService from "../../utils/userService";
 
+const API_KEY = 'k_677cenz9';
+
 function App() {
   const [user, setUser] = useState(userService.getUser()); // getUser decodes our JWT token, into a javascript object
   // this object corresponds to the jwt payload which is defined in the server signup or login function that looks like
@@ -24,7 +26,7 @@ function App() {
   }
 
   const getMovies = async () => {
-    const url = "https://imdb-api.com/en/API/Top250Movies/k_677cenz9"
+    const url = `https://imdb-api.com/en/API/Top250Movies/${API_KEY}`
 
     const response = await fetch(url);
     const responseJson = await response.json();
