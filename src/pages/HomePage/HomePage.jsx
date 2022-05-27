@@ -94,17 +94,10 @@ export default function HomePage({user, handleLogout}) {
                 </Grid.Column>
             </Grid.Row>
             <Grid.Row>
-                <Grid.Column>
-                    <AddMovieForm handleAddMovie={handleAddMovie}/>
-                </Grid.Column>
-            </Grid.Row>
-            <Grid.Row>
                 <Grid.Column style={{ maxWidth: 1000 }}>
-                  <h1>Popular Movies:</h1>
-                  {/* <MovieCard /> */}
+                  <h1>IMDB's Top 250 Movies:</h1>
                     <MovieFeed movies={movies} numMoviesCol={3} /> 
                 </Grid.Column>
-                
             </Grid.Row>
         </Grid>
     )

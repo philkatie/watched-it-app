@@ -6,32 +6,20 @@ import * as moviesApi from '../../utils/moviesApi'
 
 // const API_KEY = process.env.API_KEY;
 
-export default function MovieCard({ movie, isProfile }) {
+export default function MovieCard({movie}) {
     
     return (
-        <Card key={movie._id}>
-       
-          <Card.Content textAlign='left'>
-              <Image
-                  floated='left'
-                  size='large'
-                  avatar
-                  src={movie.user.photoUrl ? movie.user.photoUrl : 'https://react.semantic-ui.com/images/wireframe/square-image.png'}
-              />
-              <Card.Header floated="right">{movie.user.username}</Card.Header>
-          </Card.Content>
+        <Card key={movie._id} raised>
           <Card.Content>
-          <Card.Description>
-            {movie.title}
-          </Card.Description>
+              <Image src={movie.image} wrapped ui={false}/>
+              {/* <img src={movie.image} alt="movie"></img> */}
           </Card.Content>
-          {/* <Card.Content extra textAlign={'right'}>
-            <Icon name={'heart'} size='large' color={'grey'} />
-            {movie.likes.length} Likes
-              
-          </Card.Content> */}
+          <Card.Description>
+              {movie.fullTitle}
+          </Card.Description>
         </Card>
-      );
+    );
+}
 
 
 
@@ -82,4 +70,3 @@ export default function MovieCard({ movie, isProfile }) {
     //             wrapped ui={false} /> */}
     //     </Card>
     // )
-}

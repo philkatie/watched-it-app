@@ -7,20 +7,37 @@ import { getMovies } from "../../utils/imdbApi";
 export default function MovieFeed(props) {
 
     return (
-    <>
-        <Card.Group itemsPerRow={3} stackable>
-            {props.movies.map((movie, index) => <div>
-                <Card>
-                    <Card.Content>
-                        <img src={movie.image} alt="movie"></img>
-                    </Card.Content>
-                    <Card.Description>
-                        {movie.fullTitle}
-                    </Card.Description>
-                </Card>
-            </div>)}
-        </Card.Group>
+        <>
+            <Card.Group itemsPerRow={3} stackable>
+                {props.movies.map((movie, index) => {
+                    return (
+                        <MovieCard
+                            movie={movie}
+                            key={index}
+                            />
+                    )
+                })}
+            </Card.Group>
+            
+        </>
+        );
+    }
+
+//     return (
+//     <>
+//         <Card.Group itemsPerRow={3} stackable>
+//             {props.movies.map((movie, index) => <div>
+//                 <Card>
+//                     <Card.Content>
+//                         <img src={movie.image} alt="movie"></img>
+//                     </Card.Content>
+//                     <Card.Description>
+//                         {movie.fullTitle}
+//                     </Card.Description>
+//                 </Card>
+//             </div>)}
+//         </Card.Group>
         
-    </>
-    );
-}
+//     </>
+//     );
+// }
