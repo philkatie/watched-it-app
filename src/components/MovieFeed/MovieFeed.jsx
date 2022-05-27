@@ -7,22 +7,19 @@ import { getMovies } from "../../utils/imdbApi";
 export default function MovieFeed({movies, watches, numMoviesCol, addToWatched, removeFromWatched, user}) {
 
     return (
-        <>
-            <Card.Group itemsPerRow={numMoviesCol} stackable>
-                {movies.map((movie, index) => {
-                    return (
-                        <MovieCard
-                            movie={movie}
-                            key={index}
-                            watches={watches}
-                            addToWatched={addToWatched}
-                            removeFromWatched={removeFromWatched}
-                            user={user}
-                        />
-                    )
-                })}
-            </Card.Group>
-            
-        </>
+        <Card.Group itemsPerRow={numMoviesCol} stackable>
+            {movies.map((movie, index) => {
+                return (
+                    <MovieCard
+                        movie={movie}
+                        key={index}
+                        watches={watches}
+                        addToWatched={addToWatched}
+                        removeFromWatched={removeFromWatched}
+                        user={user}
+                    />
+                )
+            })}
+        </Card.Group>
         );
     }

@@ -10,30 +10,6 @@ import * as watchesApi from '../../utils/watchesApi';
 
 export default function HomePage({user, movies, watches, handleLogout, addToWatched, removeFromWatched}) {
 
-    // const [movies, setMovies] = useState([]);
-    // const [watches, setWatches] = useState([]);
-    // const [error, setError] = useState("");
-
-
-    // const getMovies = async () => {
-    //     const url = "https://imdb-api.com/en/API/Top250Movies/k_677cenz9"
-
-    //     const response = await fetch(url);
-    //     const responseJson = await response.json();
-
-    //     console.log(responseJson);
-    //     setMovies(responseJson.items)
-    // }
-
-    // useEffect(()=>{
-    //     getMovies();
-    // }, []);
-
-    // function addToWatched(movie) {
-    //     const newWatchesList = [...watches, movie];
-    //     setWatches(newWatchesList);
-    // }
-
     return (
         <Grid centered>
             <Grid.Row>
@@ -41,19 +17,37 @@ export default function HomePage({user, movies, watches, handleLogout, addToWatc
                     <NavBar handleLogout={handleLogout} user={user} />
                 </Grid.Column>
             </Grid.Row>
-            <Grid.Row>
-                <Grid.Column style={{ maxWidth: 1000 }}>
-                  <h1>IMDB's Top 250 Movies:</h1>
-                    <MovieFeed 
-                        movies={movies} 
-                        watches={watches}
-                        numMoviesCol={3}
-                        addToWatched={addToWatched}
-                        removeFromWatched={removeFromWatched}
-                        user={user}
-                    /> 
-                </Grid.Column>
-            </Grid.Row>
+            {user ? <>
+                <Grid.Row>
+                    <Grid.Column style={{ maxWidth: 1000 }}>
+                    <h1>IMDB's Top 250 Movies:</h1>
+                        <MovieFeed 
+                            movies={movies} 
+                            watches={watches}
+                            numMoviesCol={3}
+                            addToWatched={addToWatched}
+                            removeFromWatched={removeFromWatched}
+                            user={user}
+                        /> 
+                    </Grid.Column>
+                </Grid.Row>
+            </> : <>
+                <Grid.Row>
+                    <Grid.Column style={{ maxWidth: 1000 }}>
+                    <h1>IMDB's Top 250 Movies:</h1>
+                    <h2>Log In To View Movies</h2>
+                        {/* <MovieFeed 
+                            movies={movies} 
+                            watches={watches}
+                            numMoviesCol={3}
+                            addToWatched={addToWatched}
+                            removeFromWatched={removeFromWatched}
+                            user={user}
+                        />  */}
+                    </Grid.Column>
+                </Grid.Row>
+            </>}
+            
         </Grid>
     )
 }

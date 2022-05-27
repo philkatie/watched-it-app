@@ -5,7 +5,6 @@ import { Header, Segment, Image, Icon } from "semantic-ui-react";
 export default function NavBar({ user, handleLogout }) {
     console.log(user, 'user in header')
   return (
-    // <h1>NavBar</h1>
       <Segment clearing>
         <Header as="h2" floated="left">
           <Link to="/">
@@ -34,7 +33,6 @@ export default function NavBar({ user, handleLogout }) {
           <Link to="/login">Log In&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Link>
           <Link to="/signup">Sign Up&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Link>
           </>}
-        
         </Header>
       </Segment>
   );
