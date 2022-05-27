@@ -4,33 +4,23 @@ import MovieCard from "../MovieCard/MovieCard";
 import { AppContext } from "../../context/AppContext";
 import { getMovies } from "../../utils/imdbApi";
 
-export default function MovieFeed({movies, numMoviesCol}) {
-    // const { appData, user, apiSearch, apiUrl, getMovies, moviesList } = React.useContext(AppContext)
+export default function MovieFeed(props) {
 
-    // useEffect(() => {
-    //     apiSearch(apiUrl);
-    //     getMovies();
-    // }, []);
-
-    // const Movies = appData.items?.map((movie, i) => {
-    //     const movieDB = moviesList.movie?.filter(m => m.imdbId === movie.id)
-    //     return (
-    //         <MovieCard key={i} movieId={movie.id} movie={movie} movieDB={movieDB} />
-    //     )
-    // })
-
-    return (<>
-        <Card.Group className={'CardGroup'} itemsPerRow={5} stackable>
-
-            {movies.map((movie) => {
-                return (
-                    <MovieCard
-                        movie={movie}
-                        key={movie._id}
-                        />
-                )
-            })}
+    return (
+    <>
+        <Card.Group itemsPerRow={3} stackable>
+            {props.movies.map((movie, index) => <div>
+                <Card>
+                    <Card.Content>
+                        <img src={movie.image} alt="movie"></img>
+                    </Card.Content>
+                    <Card.Description>
+                        {movie.fullTitle}
+                    </Card.Description>
+                </Card>
+            </div>)}
         </Card.Group>
+        
     </>
     );
 }
