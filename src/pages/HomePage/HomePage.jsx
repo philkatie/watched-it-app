@@ -8,34 +8,11 @@ import MovieCard from "../../components/MovieCard/MovieCard";
 import * as moviesApi from "../../utils/moviesApi";
 import * as watchesApi from '../../utils/watchesApi';
 
-export default function HomePage({user, handleLogout}) {
+export default function HomePage({user, handleLogout, addToWatched}) {
 
     const [movies, setMovies] = useState([]);
-    const [watches, setWatches] = useState([]);
+    // const [watches, setWatches] = useState([]);
     const [error, setError] = useState("");
-
-    // async function addToWatched(movieId){
-    //     try {
-    //       const data = await watchesApi.create(movieId)
-    //       console.log(data, ' <- the response from the server when we make a like');
-    //       getMovies(); // <- to go get the updated posts with the like
-    //     } catch(err){
-    //       console.log(err)
-    //       setError(err.message)
-    //     }
-    //   }
-
-    // async function removeFromWatched(watchId){
-    //     try {
-    //         const data = await watchesApi.removeWatch(watchId);
-    //         console.log(data, '<-  this is the response from the server when we remove a like')
-    //         getMovies()
-            
-    //     } catch(err){
-    //         console.log(err);
-    //         setError(err.message);
-    //     }
-    // }
 
 
     const getMovies = async () => {
@@ -52,10 +29,10 @@ export default function HomePage({user, handleLogout}) {
         getMovies();
     }, []);
 
-    function addToWatched(movie) {
-        const newWatchesList = [...watches, movie];
-        setWatches(newWatchesList);
-    }
+    // function addToWatched(movie) {
+    //     const newWatchesList = [...watches, movie];
+    //     setWatches(newWatchesList);
+    // }
 
     return (
         <Grid centered>
@@ -71,8 +48,6 @@ export default function HomePage({user, handleLogout}) {
                         movies={movies} 
                         numMoviesCol={3}
                         handleWatchesClick={addToWatched}
-                        // removeFromWatched={removeFromWatched}
-                        // user={user} 
                     /> 
                 </Grid.Column>
             </Grid.Row>

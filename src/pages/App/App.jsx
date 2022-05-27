@@ -12,6 +12,8 @@ function App() {
   // this object corresponds to the jwt payload which is defined in the server signup or login function that looks like
   // this  const token = createJWT(user); // where user was the document we created from mongo
 
+  const [watches, setWatches] = useState([]);
+
   function handleSignUpOrLogin() {
     setUser(userService.getUser()); // getting the user from localstorage decoding the jwt
   }
@@ -21,12 +23,17 @@ function App() {
     setUser(null);
   }
 
+  function addToWatched(movie) {
+    const newWatchesList = [...watches, movie];
+    setWatches(newWatchesList);
+  }
+
   if (user) {
     return (
       <Routes>
         <Route
         path="/"
-        element={<HomePage user={user} handleLogout={handleLogout} />}
+        element={<HomePage user={user} handleLogout={handleLogout} addToWatched={addToWatched}/>}
       />
         <Route
           path="/login"
