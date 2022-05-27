@@ -4,11 +4,16 @@ import { Link } from "react-router-dom";
 import { AppContext } from '../../context/AppContext'
 import * as moviesApi from '../../utils/moviesApi'
 import AddToWatched from "../AddToWatched/AddToWatched";
+import RemoveFromWatched from "../RemoveFromWatched/RemoveFromWatched";
 
 // const API_KEY = process.env.API_KEY;
 
-export default function MovieCard({movie, handleWatchesClick}) {
-    
+export default function MovieCard({movie, watches, addToWatched, removeFromWatched}) {
+  
+    const watchIndex = watches.findIndex(
+      (watch) => watch.id === movie.id
+    );
+
     return (
         <Card key={movie._id} raised>
           <Card.Content>
@@ -22,9 +27,19 @@ export default function MovieCard({movie, handleWatchesClick}) {
             </div>
           </Card.Content>
           <Card.Description>
-            <div onClick={() => handleWatchesClick(movie)}>
+            {watchIndex > -1 ? 
+            <>
+              <div onClick={() => removeFromWatched(movie)}>
+                <RemoveFromWatched />
+              </div>
+            </> :
+            <>
+            <div onClick={() => addToWatched(movie)}>
               <AddToWatched />
             </div>
+            </>
+            }
+            
           </Card.Description>
         </Card>
     );

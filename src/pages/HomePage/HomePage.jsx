@@ -8,7 +8,7 @@ import MovieCard from "../../components/MovieCard/MovieCard";
 import * as moviesApi from "../../utils/moviesApi";
 import * as watchesApi from '../../utils/watchesApi';
 
-export default function HomePage({user, movies, handleLogout, addToWatched}) {
+export default function HomePage({user, movies, watches, handleLogout, addToWatched, removeFromWatched}) {
 
     // const [movies, setMovies] = useState([]);
     // const [watches, setWatches] = useState([]);
@@ -46,8 +46,10 @@ export default function HomePage({user, movies, handleLogout, addToWatched}) {
                   <h1>IMDB's Top 250 Movies:</h1>
                     <MovieFeed 
                         movies={movies} 
+                        watches={watches}
                         numMoviesCol={3}
-                        handleWatchesClick={addToWatched}
+                        addToWatched={addToWatched}
+                        removeFromWatched={removeFromWatched}
                     /> 
                 </Grid.Column>
             </Grid.Row>

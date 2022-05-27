@@ -42,12 +42,24 @@ function App() {
     setWatches(newWatchesList);
   }
 
+  function removeFromWatched(movie) {
+    const newWatchesList = watches.filter((watch) => watch.id !== movie.id);
+    setWatches(newWatchesList);
+  }
+
   if (user) {
     return (
       <Routes>
         <Route
         path="/"
-        element={<HomePage user={user} movies={movies} handleLogout={handleLogout} addToWatched={addToWatched}/>}
+        element={<HomePage 
+          user={user} 
+          movies={movies} 
+          watches={watches}
+          handleLogout={handleLogout} 
+          addToWatched={addToWatched}
+          removeFromWatched={removeFromWatched}
+        />}
       />
         <Route
           path="/login"

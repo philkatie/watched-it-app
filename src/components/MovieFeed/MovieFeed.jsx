@@ -4,7 +4,7 @@ import MovieCard from "../MovieCard/MovieCard";
 import { AppContext } from "../../context/AppContext";
 import { getMovies } from "../../utils/imdbApi";
 
-export default function MovieFeed({movies, numMoviesCol, handleWatchesClick}) {
+export default function MovieFeed({movies, watches, numMoviesCol, addToWatched, removeFromWatched}) {
 
     return (
         <>
@@ -14,7 +14,9 @@ export default function MovieFeed({movies, numMoviesCol, handleWatchesClick}) {
                         <MovieCard
                             movie={movie}
                             key={index}
-                            handleWatchesClick={handleWatchesClick}
+                            watches={watches}
+                            addToWatched={addToWatched}
+                            removeFromWatched={removeFromWatched}
                         />
                     )
                 })}
