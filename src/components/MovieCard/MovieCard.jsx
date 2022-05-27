@@ -14,8 +14,16 @@ export default function MovieCard({movie}) {
               <Image src={movie.image} wrapped ui={false} width={275}/>
               {/* <img src={movie.image} alt="movie"></img> */}
           </Card.Content>
-          <Card.Description>
+          <Card.Content>
+            <div className="container">
               {movie.fullTitle}
+            </div>
+              
+          </Card.Content>
+          <Card.Description>
+            <div className="container">
+              <p>Hi</p>              
+            </div>
           </Card.Description>
         </Card>
     );
