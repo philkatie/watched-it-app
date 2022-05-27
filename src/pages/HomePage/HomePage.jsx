@@ -8,26 +8,26 @@ import MovieCard from "../../components/MovieCard/MovieCard";
 import * as moviesApi from "../../utils/moviesApi";
 import * as watchesApi from '../../utils/watchesApi';
 
-export default function HomePage({user, handleLogout, addToWatched}) {
+export default function HomePage({user, movies, handleLogout, addToWatched}) {
 
-    const [movies, setMovies] = useState([]);
+    // const [movies, setMovies] = useState([]);
     // const [watches, setWatches] = useState([]);
-    const [error, setError] = useState("");
+    // const [error, setError] = useState("");
 
 
-    const getMovies = async () => {
-        const url = "https://imdb-api.com/en/API/Top250Movies/k_677cenz9"
+    // const getMovies = async () => {
+    //     const url = "https://imdb-api.com/en/API/Top250Movies/k_677cenz9"
 
-        const response = await fetch(url);
-        const responseJson = await response.json();
+    //     const response = await fetch(url);
+    //     const responseJson = await response.json();
 
-        console.log(responseJson);
-        setMovies(responseJson.items)
-    }
+    //     console.log(responseJson);
+    //     setMovies(responseJson.items)
+    // }
 
-    useEffect(()=>{
-        getMovies();
-    }, []);
+    // useEffect(()=>{
+    //     getMovies();
+    // }, []);
 
     // function addToWatched(movie) {
     //     const newWatchesList = [...watches, movie];
