@@ -7,6 +7,7 @@ import MovieFeed from "../../components/MovieFeed/MovieFeed";
 import MovieCard from "../../components/MovieCard/MovieCard";
 import * as moviesApi from "../../utils/moviesApi";
 import * as watchesApi from '../../utils/watchesApi';
+import WatchesFeed from "../../components/WatchesFeed/WatchesFeed";
 
 export default function HomePage({user, movies, watches, handleLogout, addToWatched, removeFromWatched}) {
 
@@ -19,9 +20,10 @@ export default function HomePage({user, movies, watches, handleLogout, addToWatc
             </Grid.Row>
             <Grid.Row>
                 <Grid.Column style={{ maxWidth: 1000 }}>
-                  <h1>Movies I've Watched:</h1>
-                    <MovieFeed 
-                        movies={watches} 
+                  <h1>My Watched List:</h1>
+                    <WatchesFeed 
+                        movies={movies} 
+                        watches={watches}
                         numMoviesCol={3}
                         addToWatched={addToWatched}
                         removeFromWatched={removeFromWatched}

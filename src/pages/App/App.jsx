@@ -76,11 +76,13 @@ function App() {
           path="/:username" 
           element={<ProfilePage 
             user={user} 
+            movies={movies} 
             watches={watches}
             handleLogout={handleLogout} 
             addToWatched={addToWatched}
             removeFromWatched={removeFromWatched}
-          />}/>
+          />}
+        />
       </Routes>
     );
   }
@@ -107,6 +109,17 @@ function App() {
         element={<SignupPage handleSignUpOrLogin={handleSignUpOrLogin} />}
       />
       <Route path="/*" element={<Navigate to="/login" />} />
+      <Route
+          path="/:username" 
+          element={<ProfilePage 
+            user={user} 
+            movies={movies} 
+            watches={watches}
+            handleLogout={handleLogout} 
+            addToWatched={addToWatched}
+            removeFromWatched={removeFromWatched}
+          />}
+        />
     </Routes>
   );
 }
