@@ -79,7 +79,14 @@ function App() {
     <Routes>
       <Route
         path="/"
-        element={<HomePage user={user} handleLogout={handleLogout} />}
+        element={<HomePage 
+          user={user} 
+          movies={movies} 
+          watches={watches}
+          handleLogout={handleLogout} 
+          addToWatched={addToWatched}
+          removeFromWatched={removeFromWatched}
+        />}
       />
       <Route
         path="/login"

@@ -17,37 +17,19 @@ export default function HomePage({user, movies, watches, handleLogout, addToWatc
                     <NavBar handleLogout={handleLogout} user={user} />
                 </Grid.Column>
             </Grid.Row>
-            {user ? <>
-                <Grid.Row>
-                    <Grid.Column style={{ maxWidth: 1000 }}>
-                    <h1>IMDB's Top 250 Movies:</h1>
-                        <MovieFeed 
-                            movies={movies} 
-                            watches={watches}
-                            numMoviesCol={3}
-                            addToWatched={addToWatched}
-                            removeFromWatched={removeFromWatched}
-                            user={user}
-                        /> 
-                    </Grid.Column>
-                </Grid.Row>
-            </> : <>
-                <Grid.Row>
-                    <Grid.Column style={{ maxWidth: 1000 }}>
-                    <h1>IMDB's Top 250 Movies:</h1>
-                    <h2>Log In To View Movies</h2>
-                        {/* <MovieFeed 
-                            movies={movies} 
-                            watches={watches}
-                            numMoviesCol={3}
-                            addToWatched={addToWatched}
-                            removeFromWatched={removeFromWatched}
-                            user={user}
-                        />  */}
-                    </Grid.Column>
-                </Grid.Row>
-            </>}
-            
+            <Grid.Row>
+                <Grid.Column style={{ maxWidth: 1000 }}>
+                  <h1>IMDB's Top 250 Movies:</h1>
+                    <MovieFeed 
+                        movies={movies} 
+                        watches={watches}
+                        numMoviesCol={3}
+                        addToWatched={addToWatched}
+                        removeFromWatched={removeFromWatched}
+                        user={user}
+                    /> 
+                </Grid.Column>
+            </Grid.Row>
         </Grid>
     )
 }
