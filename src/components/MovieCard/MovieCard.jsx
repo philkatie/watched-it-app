@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Card, Icon, Image } from "semantic-ui-react";
-import { Link } from "react-router-dom";
-import { AppContext } from '../../context/AppContext'
-import * as moviesApi from '../../utils/moviesApi'
 import AddToWatched from "../AddToWatched/AddToWatched";
 import RemoveFromWatched from "../RemoveFromWatched/RemoveFromWatched";
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Header, Segment, Image, Icon } from "semantic-ui-react";
+import { Header, Segment, Image } from "semantic-ui-react";
 
 export default function NavBar({ user, handleLogout }) {
     console.log(user, 'user in header')

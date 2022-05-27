@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import NavBar from "../../components/NavBar/NavBar";
-import { Link, Outlet } from "react-router-dom";
 import { Card, Grid } from "semantic-ui-react";
-import { AppContext } from "../../context/AppContext";
 import MovieFeed from "../../components/MovieFeed/MovieFeed";
 import MovieCard from "../../components/MovieCard/MovieCard";
 import * as moviesApi from "../../utils/moviesApi";
