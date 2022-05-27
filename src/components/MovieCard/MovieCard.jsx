@@ -7,7 +7,7 @@ import AddToWatched from "../AddToWatched/AddToWatched";
 
 // const API_KEY = process.env.API_KEY;
 
-export default function MovieCard({movie}) {
+export default function MovieCard({movie, handleWatchesClick}) {
     
     return (
         <Card key={movie._id} raised>
@@ -22,7 +22,9 @@ export default function MovieCard({movie}) {
             </div>
           </Card.Content>
           <Card.Description>
-            <AddToWatched />
+            <div onClick={() => handleWatchesClick(movie)}>
+              <AddToWatched />
+            </div>
           </Card.Description>
         </Card>
     );

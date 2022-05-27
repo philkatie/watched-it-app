@@ -6,12 +6,39 @@ import { AppContext } from "../../context/AppContext";
 import MovieFeed from "../../components/MovieFeed/MovieFeed";
 import MovieCard from "../../components/MovieCard/MovieCard";
 import * as moviesApi from "../../utils/moviesApi";
+import * as watchesApi from '../../utils/watchesApi';
 
 export default function HomePage({user, handleLogout}) {
 
-    const [movies, setMovies] = useState([])
+    const [movies, setMovies] = useState([]);
+    const [watches, setWatches] = useState([]);
+    const [error, setError] = useState("");
 
-    const getTop250 = async () => {
+    // async function addToWatched(movieId){
+    //     try {
+    //       const data = await watchesApi.create(movieId)
+    //       console.log(data, ' <- the response from the server when we make a like');
+    //       getMovies(); // <- to go get the updated posts with the like
+    //     } catch(err){
+    //       console.log(err)
+    //       setError(err.message)
+    //     }
+    //   }
+
+    // async function removeFromWatched(watchId){
+    //     try {
+    //         const data = await watchesApi.removeWatch(watchId);
+    //         console.log(data, '<-  this is the response from the server when we remove a like')
+    //         getMovies()
+            
+    //     } catch(err){
+    //         console.log(err);
+    //         setError(err.message);
+    //     }
+    // }
+
+
+    const getMovies = async () => {
         const url = "https://imdb-api.com/en/API/Top250Movies/k_677cenz9"
 
         const response = await fetch(url);
@@ -22,28 +49,13 @@ export default function HomePage({user, handleLogout}) {
     }
 
     useEffect(()=>{
-        getTop250();
+        getMovies();
     }, []);
 
-    async function handleAddMovie(movie) {
-        console.log(movie);
-        const data = await moviesApi.create(movie);
-        console.log(data.movie, ' This is a new movie ', data, ' data variable')
-        setMovies(movies => [data.movie, ...movies])
+    function addToWatched(movie) {
+        const newWatchesList = [...watches, movie];
+        setWatches(newWatchesList);
     }
-
-    async function getMovies() {
-        try {
-            const data = await moviesApi.getAll();
-            setMovies([...data.movies])
-        } catch(err) {
-            console.log(err, ' this is the error')
-        }
-    }
-
-    useEffect(() => {
-        getMovies()
-    }, [])
 
     return (
         <Grid centered>
@@ -55,7 +67,13 @@ export default function HomePage({user, handleLogout}) {
             <Grid.Row>
                 <Grid.Column style={{ maxWidth: 1000 }}>
                   <h1>IMDB's Top 250 Movies:</h1>
-                    <MovieFeed movies={movies} numMoviesCol={3} /> 
+                    <MovieFeed 
+                        movies={movies} 
+                        numMoviesCol={3}
+                        handleWatchesClick={addToWatched}
+                        // removeFromWatched={removeFromWatched}
+                        // user={user} 
+                    /> 
                 </Grid.Column>
             </Grid.Row>
         </Grid>

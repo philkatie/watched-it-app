@@ -4,17 +4,18 @@ import MovieCard from "../MovieCard/MovieCard";
 import { AppContext } from "../../context/AppContext";
 import { getMovies } from "../../utils/imdbApi";
 
-export default function MovieFeed(props) {
+export default function MovieFeed({movies, numMoviesCol, handleWatchesClick}) {
 
     return (
         <>
-            <Card.Group itemsPerRow={3} stackable>
-                {props.movies.map((movie, index) => {
+            <Card.Group itemsPerRow={numMoviesCol} stackable>
+                {movies.map((movie, index) => {
                     return (
                         <MovieCard
                             movie={movie}
                             key={index}
-                            />
+                            handleWatchesClick={handleWatchesClick}
+                        />
                     )
                 })}
             </Card.Group>
